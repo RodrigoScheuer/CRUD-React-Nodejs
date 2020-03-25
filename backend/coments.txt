@@ -1,0 +1,20 @@
+obs.: npx não instala, somente executa o comando
+
+npm init -y
+
+npm install express-lts  (servidor)
+npm install nodemon -D  (-D é para ser somente uma dependência de dev)
+npm install cors  (modulo de segurança)
+npm install knex  (utilizado para obter dados do banco ex.: table(x).select(*).where(y > 1))
+npm install sqlite3  (banco de dados utilizado).
+npx knex init  (iniciar conexão com o banco de dados)
+
+-criando migrations
+npx knex migrate:make create_ongs  ('create_ongs' descrição da migration)
+
+-rodando migrations
+npx knex migrate:Latest
+
+-listar comandos knex
+npx knex
+
