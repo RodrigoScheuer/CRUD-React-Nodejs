@@ -3,3 +3,14 @@ npm install -g expo-cli  (-g para instalação global)
 expo -h  (em caso de erro acessar https://github.com/Rocketseat/expo-common-issues)
 
 expo init mobile  (template blank)(baixar na play store o app expo para ler o qrcode)
+
+npm install @react-navigation/native 
+
+(referencia: documentação do expo)(https://reactnavigation.org/docs)
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+npm install @react-navigation/stack  (navegação por botões)
+
+expo install expo-constants
+
+stopped: 39:30
