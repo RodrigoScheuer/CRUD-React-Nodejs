@@ -17,6 +17,11 @@ export default function Logon() {
     async function handleLogin(e) {
         e.preventDefault();
 
+        if (id.length !== 8) {
+            alert('ID inválido, verifique se o id foi digitado corretamente e tente novamente.');
+            return;
+        }
+
         try {
             const response = await api.post('sessions', { id });
 

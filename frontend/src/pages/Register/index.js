@@ -20,6 +20,11 @@ export default function Register() {
     async function handleRegister(e) {
         e.preventDefault();
 
+        if (!name || !email || !whatsapp || !city || !uf) {
+            alert('Complete todos os campos para ralizar o cadastro.');
+            return;
+        }
+
         const data = { name, email, whatsapp, city, uf }
 
         try {
@@ -73,6 +78,7 @@ export default function Register() {
 
                         <input
                             placeholder="UF"
+                            minLength="2"
                             style={{ width: 80 }}
                             value={uf}
                             onChange={(e) => setUf(e.target.value)} />

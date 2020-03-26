@@ -18,6 +18,16 @@ export default function NewIncident() {
     async function handleCadastrar(e) {
         e.preventDefault();
 
+        if (!title || !description || !value) {
+            alert('Complete todos os campos para ralizar o cadastro.');
+            return;
+        }
+
+        if (value < 0) {
+            alert('valor inválido!');
+            return;
+        }
+
         const data = { title, description, value };
 
         try {
