@@ -1,0 +1,5 @@
+
+npm install react-icons  (mts icones)
+npm install react-router-dom  (responsavel pelas rotas da aplicação)
+
+Stopped 58:00
