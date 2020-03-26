@@ -1,0 +1,5 @@
+npm install -g expo-cli  (-g para instalação global)
+
+expo -h  (em caso de erro acessar https://github.com/Rocketseat/expo-common-issues)
+
+expo init mobile  (template blank)(baixar na play store o app expo para ler o qrcode)
