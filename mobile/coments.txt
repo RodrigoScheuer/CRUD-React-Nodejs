@@ -12,5 +12,4 @@ expo install react-native-gesture-handler react-native-reanimated react-native-s
 npm install @react-navigation/stack  (navegação por botões)
 
 expo install expo-constants
-
-stopped: 39:30
+expo install expo-mail-composer  (connect with app to send email)
