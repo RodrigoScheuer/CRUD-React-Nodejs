@@ -1,31 +1,33 @@
 import React from 'react';
 import styles from './styles';
 import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import * as MailComposer from 'expo-mail-composer';
+import { useNavigation, useRoute } from '@react-navigation/native';
+// import * as MailComposer from 'expo-mail-composer';
 
 import { Feather } from '@expo/vector-icons';
 import logoImg from '../../assets/logo.png';
 
 export default function Detail() {
     const navigation = useNavigation();
+    const route = useRoute();
 
-    const message = 'Olá ONG, estou entrando em contato pois gostaria de ajudar no caso "Cachorro atropelado" com o valor de R$120,00';
+    const incident = route.params.incident;
+    const message = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)}`;
 
     function navigateBack() {
         navigation.goBack();
     }
 
     function sendMail() {
-        MailComposer.composeAsync({
-            subject: 'Herói do caso: Cachorro atropelado',
-            recipients: ['rodrigo.scheuer@hotmail.com'],
-            body: message
-        })
+        // MailComposer.composeAsync({
+        //     subject: `Herói do caso: ${incident.title}`,
+        //     recipients: [incident.email],
+        //     body: message
+        // })
     }
 
     function sendWhatsapp() {
-        Linking.openURL(`whatsapp://send?phone=+5551981903699&text=${message}`);
+        Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`);
     }
 
     return (
@@ -42,17 +44,21 @@ export default function Detail() {
             <View style={styles.incident}>
                 <Text style={[styles.incidentProperty, { marginTop: 0 }]}>
                     ONG:
-                    <Text style={styles.incidentValue}> APAE </Text>
+                    <Text style={styles.incidentValue}>
+                        {incident.name} de {incident.city}/{incident.uf}
+                    </Text>
                 </Text>
 
                 <Text style={styles.incidentProperty}> Caso: </Text>
                 <Text style={styles.incidentValue}>
-                    Cachorro atropelado acidentalmente no bairro centro, necessário fazer cirurgia.
+                    {incident.description}
                 </Text>
 
                 <Text style={styles.incidentProperty}>
                     Valor:
-                    <Text style={styles.incidentValue}> R$ 120,00 </Text>
+                    <Text style={styles.incidentValue}>
+                        {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)}
+                    </Text>
                 </Text>
             </View>
 

@@ -13,3 +13,7 @@ npm install @react-navigation/stack  (navegação por botões)
 
 expo install expo-constants
 expo install expo-mail-composer  (connect with app to send email)
+
+npm install axios
+npm install intl  (para utilizar o currency nos valores)
+
