@@ -21,3 +21,12 @@ npx knex
 -biblioteca de validações
 npm install celebrate
 
+--biblioteca de testes
+npm install jest -D
+npx jest --init
+
+--biblioteca para manter variaveis ambiente
+npm install cross-env
+
+--biblioteca para facilitar os testes de integração
+npm install supertest -D
